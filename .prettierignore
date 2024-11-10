@@ -1,0 +1,28 @@
+# Ignore all files in node_modules
+node_modules/
+.git/
+
+# Ignore build output directories
+dist/
+build/
+
+# Ignore specific file types
+*.min.js
+*.map
+
+# Files
+*.md
+*.mdx
+
+# package lock files
+bun.lockb
+*.lockb
+
+# environment files
+*.env
+.env
+.env.production
+.env.local
+
+
+

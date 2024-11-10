@@ -1,0 +1,16 @@
+.now/*
+*.css
+.changeset
+dist
+esm/*
+public/*
+tests/*
+scripts/*
+*.config.js
+.DS_Store
+node_modules
+coverage
+.next
+build
+!jest.config.js
+!react-shim.js

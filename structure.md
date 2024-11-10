@@ -1,0 +1,27 @@
+/src
+  /components
+    Header.tsx
+    Footer.tsx
+    VideoPlayer.tsx
+  /pages
+    /api
+      auth
+        [...nextauth].ts
+      users.ts
+      videos.ts
+    index.tsx
+    profile.tsx
+    dashboard.tsx
+  /db
+    schema.ts
+    drizzle.ts
+  /styles
+    globals.css
+  /utils
+    fetcher.ts
+  app
+    layout.tsx
+    page.tsx
+  nextauth.config.js
+  tailwind.config.js
+  tsconfig.json
