@@ -1,3 +1,4 @@
+```
 /src
   /components
     Header.tsx
@@ -25,3 +26,4 @@
   nextauth.config.js
   tailwind.config.js
   tsconfig.json
+```

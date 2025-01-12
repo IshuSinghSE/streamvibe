@@ -5,11 +5,12 @@ import {
   boolean,
   real,
   timestamp,
+  uuid,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 
 export const movies = pgTable("movies", {
-  id: text("id").primaryKey(),
+  id: uuid("id").notNull().primaryKey().defaultRandom().unique(),
   title: text("title").notNull(),
   genre: text("genre")
     .array()
@@ -41,24 +42,24 @@ export const movies = pgTable("movies", {
   rating: real("rating"),
   posterUrl: text("posterUrl"),
   trailerUrl: text("trailerUrl"),
-  createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
 export const seasons = pgTable("seasons", {
-  id: text("id").primaryKey(),
-  movieId: text("movieId").references(() => movies.id),
+  id: uuid("id").notNull().primaryKey().defaultRandom().unique(),
+  movieId: uuid("movie_id").references(() => movies.id),
   seasonNumber: integer("seasonNumber").notNull(),
   title: text("title").notNull(),
   description: text("description"),
   releaseDate: text("releaseDate"),
-  createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
 export const episodes = pgTable("episodes", {
-  id: text("id").primaryKey(),
-  seasonId: text("seasonId").references(() => seasons.id),
+  id: uuid("id").notNull().primaryKey().defaultRandom().unique(),
+  seasonId: uuid("season_id").references(() => seasons.id),
   episodeNumber: integer("episodeNumber").notNull(),
   title: text("title").notNull(),
   length: integer("length"),
@@ -66,6 +67,6 @@ export const episodes = pgTable("episodes", {
   description: text("description"),
   likes: integer("likes"),
   streamUrl: text("streamUrl"),
-  createdAt: timestamp("createdAt").defaultNow().notNull(),
-  updatedAt: timestamp("updatedAt").defaultNow().notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });

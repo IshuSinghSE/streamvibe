@@ -1,11 +1,12 @@
-import { drizzle } from "drizzle-orm/neon-serverless";
+import { neon } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-http';
 
-// const sql = neon(process.env.DATABASE_URL);
 
 if (!process.env.DATABASE_URL) {
   console.error("DATABASE_URL is not set");
 } else {
-  console.log("Connecting to database with URL:", "neonDB");
+  console.log("🟢 Connecting to database with URL:", "neonDB");
 }
 
-export const db = drizzle(process.env.DATABASE_URL!);
+const sql = neon(process.env.DATABASE_URL!);
+export const db = drizzle({ client: sql });

@@ -12,7 +12,7 @@
 <br />
 
 <p align="center">
-Welcome to **StreamVibe**, your ultimate video streaming experience. Dive into a world of endless content with high-quality playback and an intuitive interface designed just for you.
+Welcome to <strong>StreamVibe</strong>, your ultimate video streaming experience. Dive into a world of endless content with high-quality playback and an intuitive interface designed just for you.
 </p>
 
 ## Key Features
@@ -40,22 +40,12 @@ Check out our demo video to see StreamVibe in action:
 - **API Support**: Thanks to [VidSrc](https://vidsrc.dev/) for the robust API services.
 - **Development**: Developed by [Ishu](https://github.com/IshuSinghSE).
 
-## License
-
-© 2024 StreamVibe. All rights reserved.
-
-## Additional Sections
-
 ### User Guide
 For detailed instructions on how to use StreamVibe, check out our [User Guide](path/to/user_guide.pdf).
 
-### Contact Us
-For support or inquiries, please reach out at support@streamvibe.com.
-
-## Get Started
-
-Ready to elevate your streaming experience? Join the StreamVibe community today!
+### License
+© 2025 StreamVibe. All rights reserved.
 
 ---
 
-*For more information, visit our [website](https://yourwebsite.com) or contact us at support@streamvibe.com.*
+*For more information, visit our [website](https://yourwebsite.com) or contact us at [support@streamvibe.com](mailto:support@streamvibe.com).*

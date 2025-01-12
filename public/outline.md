@@ -37,6 +37,7 @@ A feature-rich video streaming website designed for seamless user experience and
 - **Vercel**: For hosting your Next.js application with built-in CI/CD.
 
 ## Integration Overview
+A brief list of the features of the website, how the different components come together and forms a great product.
 
 ### User Authentication
 
