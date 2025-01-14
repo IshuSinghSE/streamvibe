@@ -1,27 +1,14 @@
-import { signInWithEmailAndPassword } from "@/lib/actions/auth";
+import { LoginForm } from "@/components/auth/login-form";
+// import { signInWithEmailAndPassword } from "@/lib/actions/auth";
 
-const SignIn = () =>{
-  
-  return (
-    <form
-      action={async (formData) => {
-        "use server";
-        const email = formData.get('email') as string;
-        const password = formData.get('password') as string;
-        await signInWithEmailAndPassword({email, password});
-      }}
-    >
-      <label>
-        Email
-        <input name="email" type="email" />
-      </label>
-      <label>
-        Password
-        <input name="password" type="password" />
-      </label>
-      <button>Sign In</button>
-    </form>
-  );
-}
+const SignIn = () => {
+    return (
+        <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
+            <div className="w-full max-w-sm md:max-w-3xl">
+                <LoginForm />
+            </div>
+        </div>
+    );
+};
 
 export default SignIn;
