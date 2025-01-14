@@ -3,6 +3,7 @@ import { ModeToggle } from "./ThemeToggle";
 import { Bars3BottomRightIcon } from "@heroicons/react/24/solid";
 import { MenuBar } from "./MenuBar";
 import { Bell, SearchIcon } from "lucide-react";
+import NavBar from "./NavBar";
 
 const Header = () => {
     return (
@@ -29,14 +30,7 @@ const Header = () => {
                 </svg>
                 <h1 className="font-righteous text-xl">StreamVibe</h1>
             </div>
-            <nav className="hidden md:flex bg-card p-2 rounded-lg">
-                <ul className="flex items-center justify-center space-x-4">
-                    <li>Home</li>
-                    <li>Movies</li>
-                    <li>Series</li>
-                    <li>Support</li>
-                </ul>
-            </nav>
+            <NavBar />
             <div className="flex items-center space-x-4">
                 <div className="hidden md:flex space-x-4">
                     <SearchIcon className="p-1 h-8 w-8" />
