@@ -45,3 +45,16 @@ declare module "next-auth/jwt" {
         emailVerified: boolean;
     }
 }
+
+export type PlanFeatures = {
+    Content: string;
+    Devices: string;
+    FreeTrial: string;
+    CancelAnytime: string;
+    HDR: string;
+    DolbyAtmos: string;
+    AdFree: string;
+    OfflineViewing: string;
+    FamilySharing: string;
+};
+

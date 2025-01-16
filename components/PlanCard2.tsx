@@ -1,10 +1,6 @@
-import {
-    formatFeatureName,
-    PLANSFEATURES
-} from '@/app/(root)/subscription/page';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from './ui/card';
-import { cn } from '@/lib/utils';
+import { cn, formatFeatureName, PLANSFEATURES } from '@/lib/utils';
 
 const PlanCard2 = () => {
     return (
