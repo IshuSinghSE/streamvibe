@@ -294,15 +294,15 @@ export const FooterLinks = [
 export const FooterIcons = [
     {
         name: "Facebook",
-        icon: "/assets/icons/facebook.svg",
+        path: "/assets/icons/facebook.svg",
     },
     {
         name: "Twitter",
-        icon: "/assets/icons/twitter.svg",
+        path: "/assets/icons/twitter.svg",
     },
     {
         name: "LinkedIn",
-        icon: "/assets/icons/linkedin.svg",
+        path: "/assets/icons/linkedin.svg",
     },
     // {
     //     name: "Instagram",

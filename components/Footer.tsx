@@ -33,7 +33,7 @@ const Footer = () => {
                         {FooterIcons.map((icon) => (
                             <Link href="#" key={icon.name}>
                                 <Image
-                                    src={`/assets/icons/${icon.name}.svg`}
+                                    src={icon.path}
                                     alt={icon.name}
                                     width={48}
                                     height={48}
