@@ -1,19 +1,19 @@
-"use client";
+'use client';
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
     CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
-import { DEVICES, GENRES } from "@/lib/constant";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
-import FAQ from "./homepage/FAQ";
-import { Card, CardContent, CardHeader } from "./ui/card";
-import PlanCard from "./PlanCard";
-import FlashCard from "./FlashCard";
-import Hero from "./Hero";
+    CarouselPrevious
+} from '@/components/ui/carousel';
+import { DEVICES, GENRES } from '@/lib/constant';
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
+import Hero from '../homepage/Hero';
+import { Card, CardContent, CardHeader } from '../ui/card';
+import FAQ from '../homepage/FAQ';
+import PlanCard from '../PlanCard';
+import FlashCard from '../FlashCard';
 
 const Explore = () => {
     return (
@@ -36,21 +36,21 @@ const Explore = () => {
                     <CarouselContent className="ml-1 md:ml-8 gap-2 md:gap-4">
                         {GENRES.map((genre) => (
                             <CarouselItem
-                                key={genre.name}
+                                key={genre.title}
                                 className="group relative basis-48 lg:basis-52 flex-shrink-0 flex flex-col gap-4 bg-zinc-800 p-4 rounded-lg border-2 border-zinc-700 hover:border-zinc-600 transition-colors duration-100 ease-in-out"
                             >
                                 <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-black opacity-100 rounded-lg"></div>
                                 <div className="rounded-lg">
                                     <Image
                                         src={genre.image}
-                                        alt={genre.name}
+                                        alt={genre.title}
                                         width={200}
                                         height={200}
                                         className="group-hover:scale-105 transition-transform duration-200 ease-in-out"
                                     />
                                 </div>
                                 <div className="flex items-center justify-between px-2 text-zinc-100 group-hover:text-zinc-400 transition-colors duration-200 ease-in-out z-20">
-                                    <p>{genre.name}</p>
+                                    <p>{genre.title}</p>
                                     <ArrowRightIcon width={24} height={24} />
                                 </div>
                             </CarouselItem>
