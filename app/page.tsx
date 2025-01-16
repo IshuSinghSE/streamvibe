@@ -1,17 +1,18 @@
-"use client";
+'use client';
 
-import { DEVICES } from "@/lib/constant";
+import { DEVICES, GENRES } from '@/lib/constant';
 
-import FAQ from "@/components/homepage/FAQ";
-import FlashCard from "@/components/FlashCard";
-import PlanCard from "@/components/PlanCard";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import GenreCard from "@/components/GenreCard";
-import Hero from "@/components/homepage/Hero";
+import FlashCard from '@/components/FlashCard';
+import FAQ from '@/components/homepage/FAQ';
+import Hero from '@/components/homepage/Hero';
+import PlanCard from '@/components/PlanCard';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { ArrowRightIcon } from '@heroicons/react/24/solid';
+import ContentCardCarousel from '@/components/ContentCardCarousel';
 
 export default function Home() {
     return (
-        <section className="relative w-full min-h-screen ">
+        <section className="section-layout -my-16">
             <Hero />
             <div className="px-8 md:px-24 flex flex-col gap-16 items-start justify-center bg-gradient-to-t from-transparent to-black opacity-90">
                 <div className="space-y-2 ">
@@ -26,7 +27,11 @@ export default function Home() {
                 </div>
 
                 {/* Genre Tiles Carousel */}
-                <GenreCard />
+                <ContentCardCarousel
+                    items={GENRES}
+                    variant="genre"
+                    stats={<ArrowRightIcon width={24} height={24} />}
+                />
                 {/* Genre Tiles Carousel End */}
 
                 {/* Devices Section */}
@@ -99,6 +104,4 @@ export default function Home() {
             </div>
         </section>
     );
-};
-
-
+}

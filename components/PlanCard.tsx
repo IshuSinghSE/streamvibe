@@ -9,9 +9,9 @@ const PlanCard = () => {
         <>
             <Tabs defaultValue="monthly" className="w-full mt-4">
                 <div className="flex justify-center items-center h-10">
-                <TabsList className="h-14">
-                    <TabsTrigger value="monthly" className="w-28 h-12 text-lg">Monthly</TabsTrigger>
-                    <TabsTrigger value="yearly" className="w-28 h-12 text-lg">Yearly</TabsTrigger>
+                <TabsList className="h-12">
+                    <TabsTrigger value="monthly" className="w-28 h-10 text-md">Monthly</TabsTrigger>
+                    <TabsTrigger value="yearly" className="w-28 h-10 text-md">Yearly</TabsTrigger>
                 </TabsList>
                 </div>
                 <TabsContent value="monthly" className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">

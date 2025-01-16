@@ -7,16 +7,36 @@
         @apply scroll-smooth;
     }
     body {
-        @apply antialiased text-foreground font-manrope;
+        @apply antialiased text-foreground font-manrope bg-neutral-900;
     }
 }
 
 @layer components {
-  @media (prefers-color-scheme: light) {
-    .logo-path {
-      @apply fill-black;
+    @media (prefers-color-scheme: light) {
+        .logo-path {
+            @apply fill-black;
+        }
     }
-  }
+    /* default */
+    .section-layout{
+        @apply relative w-full min-h-screen max-w-screen-2xl mx-auto my-16
+    }
+
+    /* default end */
+
+    .gradient-top {
+        @apply absolute inset-0 bg-gradient-to-t from-transparent to-black opacity-90;
+    }
+
+    .gradient-bottom {
+        @apply absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-90;
+    }
+
+    .hero-gradient{
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .8) 20%, rgba(0, 0, 0, 0) 100%);
+    }
 }
 
 @layer base {
@@ -32,10 +52,10 @@
         --primary-100: 0 100% 97.8%; /* #fffafa */
         --primary-200: 0 100% 93.9%; /* #ffe5e5 */
         --primary-300: 0 100% 86.7%; /* #ffcccc */
-        --primary-400: 0 100% 80%;   /* #ff9999 */
-        --primary-500: 0 100% 60%;   /* #ff3333 */
+        --primary-400: 0 100% 80%; /* #ff9999 */
+        --primary-500: 0 100% 60%; /* #ff3333 */
         --primary-600: 0 100% 53.9%; /* #ff1919 */
-        --primary-700: 0 100% 50%;   /* #ff0000 */
+        --primary-700: 0 100% 50%; /* #ff0000 */
         --primary-800: 0 100% 44.9%; /* #e50000 */
         --secondary: 240 4.8% 95.9%;
         --secondary-foreground: 240 5.9% 10%;
@@ -46,7 +66,7 @@
         --secondary-500: 240 5.4% 74.9%; /* #bfbfbf */
         --secondary-600: 240 5.5% 70.2%; /* #b3b3b3 */
         --secondary-700: 240 5.6% 65.1%; /* #a6a6a6 */
-        --secondary-800: 240 5.7% 60%;  /* #999999 */
+        --secondary-800: 240 5.7% 60%; /* #999999 */
         --muted: 240 4.8% 95.9%;
         --muted-foreground: 240 3.8% 46.1%;
         --accent: 240 4.8% 95.9%;
@@ -62,7 +82,6 @@
         --chart-3: 197 37% 24%;
         --chart-4: 43 74% 66%;
         --chart-5: 27 87% 67%;
-        
     }
     .dark {
         --background: 20 14.3% 4.1%;
@@ -76,21 +95,21 @@
         --primary-100: 0 100% 97.8%; /* #fffafa */
         --primary-200: 0 100% 93.9%; /* #ffe5e5 */
         --primary-300: 0 100% 86.7%; /* #ffcccc */
-        --primary-400: 0 100% 80%;   /* #ff9999 */
-        --primary-500: 0 100% 60%;   /* #ff3333 */
+        --primary-400: 0 100% 80%; /* #ff9999 */
+        --primary-500: 0 100% 60%; /* #ff3333 */
         --primary-600: 0 100% 53.9%; /* #ff1919 */
-        --primary-700: 0 100% 50%;   /* #ff0000 */
+        --primary-700: 0 100% 50%; /* #ff0000 */
         --primary-800: 0 100% 44.9%; /* #e50000 */
         --secondary: 240 3.7% 15.9%;
         --secondary-foreground: 0 0% 98%;
         --secondary-800: 0 0% 29.8%; /* #4c4c4c */
         --secondary-700: 0 0% 25.1%; /* #404040 */
-        --secondary-600: 0 0% 20%;   /* #333333 */
+        --secondary-600: 0 0% 20%; /* #333333 */
         --secondary-500: 0 0% 14.9%; /* #262626 */
         --secondary-400: 0 0% 12.2%; /* #1f1f1f */
         --secondary-300: 0 0% 10.2%; /* #1a1a1a */
-        --secondary-200: 0 0% 8.2%;  /* #141414 */
-        --secondary-100: 0 0% 6.3%;  /* #0f0f0f */
+        --secondary-200: 0 0% 8.2%; /* #141414 */
+        --secondary-100: 0 0% 6.3%; /* #0f0f0f */
         --muted: 0 0% 15%;
         --muted-foreground: 240 5% 64.9%;
         --accent: 12 6.5% 15.1%;
@@ -105,7 +124,6 @@
         --chart-3: 30 80% 55%;
         --chart-4: 280 65% 60%;
         --chart-5: 340 75% 55%;
-        
     }
 }
 /* 

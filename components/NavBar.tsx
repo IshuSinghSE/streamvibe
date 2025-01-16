@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const NavBar = () => {
     const navItems = [
-        { name: "Home", href: "/" },
+        { name: "Dashboard", href: "/dashboard" },
         { name: "Movies", href: "/movies" },
         { name: "Series", href: "/series" },
         { name: "Support", href: "/support" },

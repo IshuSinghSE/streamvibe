@@ -26,10 +26,10 @@ const FAQ = () => {
                 >
                     <AccordionTrigger>
                         <div className="flex items-center justify-between gap-4">
-                            <p className="p-3 bg-neutral-900 ring-neutral-800 ring-1 aspect-square rounded-lg hover:no-underline ">
+                            <p className="p-3 bg-neutral-900 ring-neutral-800 ring-1 aspect-square rounded-lg no-underline ">
                                 0{index + 1}
                             </p>
-                            <h3 className="text-xl tracking-wide text-neutral-200">
+                            <h3 className="text-xl md:text-lg tracking-wide text-neutral-200">
                                 {faq.question}
                             </h3>
                         </div>

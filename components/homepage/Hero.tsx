@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 
 const Hero = () => {
     return (
-        <section className="relative h-screen w-full">
+        <section className="relative h-screen w-full max-w-screen-2xl mx-auto">
             <div className="absolute inset-0 bg-gradient-to-t from-transparent to-black opacity-90"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-90"></div>
             <div
-                className="w-full h-full flex justify-center items-stretch bg-contain bg-center"
+                className="w-full h-full flex justify-center items-stretch bg-cover md:bg-contain bg-center"
                 style={{
                     backgroundImage:
                         "url('/assets/images/movies-grid-desktop.jpg')",
