@@ -1,32 +1,46 @@
 'use client';
-import { Bars3BottomRightIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import { BellIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { MenuBar } from "./MenuBar";
-import NavBar from "./NavBar";
-import { ModeToggle } from "./ThemeToggle";
-import { Button } from "./ui/button";
+import {
+    // Bars3BottomRightIcon,
+    MagnifyingGlassIcon
+} from '@heroicons/react/24/solid';
+import { BellIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { MenuBar } from './MenuBar';
+import NavBar from './NavBar';
+import { ModeToggle } from './ThemeToggle';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { useSession } from 'next-auth/react';
+import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
+import { AvatarFallback } from './ui/avatar';
 
 const Header = () => {
-    const user = 1;
+    const { data: user } = useSession();
+    // console.log(user, status);
     const [showHeader, setShowHeader] = useState(true);
+    const [blurHeader, setBlurHeader] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 
-    const controlHeader = () => {
-        if (typeof window !== 'undefined') {
-            if (window.scrollY > lastScrollY) {
-                // if scroll down hide the header
-                setShowHeader(false);
-            } else {
-                // if scroll up show the header
-                setShowHeader(true);
-            }
-            setLastScrollY(window.scrollY);
-        }
-    };
-
     useEffect(() => {
+        const controlHeader = () => {
+            if (typeof window !== 'undefined') {
+                if (window.scrollY > lastScrollY) {
+                    // if scroll down hide the header
+                    setShowHeader(false);
+                } else {
+                    if (window.scrollY < window.innerHeight - 100) {
+                        setBlurHeader(false);
+                    } else {
+                        setBlurHeader(true);
+                    }
+                    // if scroll up show the header
+                    setShowHeader(true);
+                }
+                setLastScrollY(window.scrollY);
+            }
+        };
+
         if (typeof window !== 'undefined') {
             window.addEventListener('scroll', controlHeader);
 
@@ -38,7 +52,13 @@ const Header = () => {
     }, [lastScrollY]);
 
     return (
-        <header className={`w-full h-20 max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-24 py-2 fixed top-0 left-0 right-0 z-10 bg-gradient-to-b from-black to-transparent ${window.scrollY > window.innerHeight -100 ?'backdrop-blur-sm': 'backdrop-blur-none'} transition-transform duration-500 ease-in-out ${showHeader ? 'translate-y-0' : '-translate-y-full'}`}>
+        <header
+            className={`w-full h-20 max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-24 py-2 fixed top-0 left-0 right-0 z-10 bg-gradient-to-b from-black to-transparent ${
+                blurHeader ? 'backdrop-blur-sm' : 'backdrop-blur-none'
+            } transition-transform duration-500 ease-in-out ${
+                showHeader ? 'translate-y-0' : '-translate-y-full'
+            }`}
+        >
             <Link href="/">
                 <div className="flex items-center space-x-2 w-[200px] h-[60px] cursor-pointer">
                     <svg
@@ -67,19 +87,36 @@ const Header = () => {
             <div className="flex items-center space-x-4">
                 {user ? (
                     <>
-                        <div className="hidden md:flex space-x-4">
+                        <div className="flex space-x-4">
                             <MagnifyingGlassIcon className="p-1 h-8 w-8" />
                             <BellIcon className="p-1 h-8 w-8" />
                         </div>
-                        <MenuBar>
-                            <Bars3BottomRightIcon className="h-10 w-10 p-1 bg-neutral-900 flex md:hidden rounded-lg ring-1 ring-neutral-800 shadow-lg shadow-neutral-800" />
+                        <MenuBar user={user?.user}>
+                            <Avatar className="h-10 w-10 p-1 bg-neutral-900 flex rounded-full ring-1 ring-neutral-800 shadow-lg shadow-neutral-800 cursor-pointer ">
+                                <AvatarImage
+                                    className="rounded-full "
+                                    src={
+                                        user?.user?.image ??
+                                        'https://github.com/shadcn.png'
+                                    }
+                                />
+                                <AvatarFallback>CN</AvatarFallback>
+                            </Avatar>
+
+                            {/* <Bars3BottomRightIcon className="h-10 w-10 p-1 bg-neutral-900 flex rounded-lg ring-1 ring-neutral-800 shadow-lg shadow-neutral-800" /> */}
                         </MenuBar>
                     </>
                 ) : (
                     <div className="flex items-center space-x-4 ">
-                        <Button className="dark:bg-red-700 dark:hover:bg-primary-600 dark:text-white font-normal">
+                        <Link
+                            href={'/signup'}
+                            className={cn(
+                                buttonVariants({ variant: 'outline' }),
+                                `dark:bg-red-700 dark:hover:bg-primary-800 dark:text-white font-normal`
+                            )}
+                        >
                             Sign Up
-                        </Button>
+                        </Link>
                     </div>
                 )}
                 <ModeToggle className="hidden md:flex" />

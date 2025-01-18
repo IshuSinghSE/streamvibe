@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ThemeProvider } from "./_contexts/ThemeProvider";
+import AuthProvider from "./_contexts/AuthProvider";
 
 const manrope = Manrope({
     weight: ["400", "500", "600", "700"],
@@ -50,7 +51,7 @@ export default function RootLayout({
                 />
                 <link rel="manifest" href="/site.webmanifest" />
             </head>
-            {/* <AuthProvider> */}
+            <AuthProvider>
             <body
                 className={`${manrope.variable ?? ""} ${
                     righteous.variable ?? ""
@@ -60,7 +61,7 @@ export default function RootLayout({
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
-                    disableTransitionOnChange
+                   
                 >
                     <main className="relative min-h-screen max-w-screen-2xl flex flex-col">
                         <Header />
@@ -69,7 +70,7 @@ export default function RootLayout({
                     </main>
                 </ThemeProvider>
             </body>
-            {/* </AuthProvider> */}
+            </AuthProvider>
         </html>
     );
 }

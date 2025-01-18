@@ -31,7 +31,7 @@ const signInWithEmailAndPassword = async (
   }
 };
 
-const signUp = async (params: AuthCredentials) => {
+const signUpWithEmailAndPassword = async (params: AuthCredentials) => {
   const { email, password, fullName } = params;
 
   // Check if the email is already in use
@@ -65,4 +65,4 @@ const signUp = async (params: AuthCredentials) => {
   }
 };
 
-export { signUp, signInWithEmailAndPassword };
+export { signUpWithEmailAndPassword, signInWithEmailAndPassword };

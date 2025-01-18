@@ -1,12 +1,12 @@
-import "next-auth";
-import { DefaultSession } from "next-auth";
+import 'next-auth';
+import { DefaultSession } from 'next-auth';
 
 interface User {
     id: string;
     email: string;
     fullname: string;
     profilePictureUrl?: string;
-    subscriptionType: "FREE" | "STANDARD" | "PREMIUM";
+    subscriptionType: 'FREE' | 'STANDARD' | 'PREMIUM';
     emailVerified: boolean;
     createdAt: string;
     updatedAt: string;
@@ -18,31 +18,35 @@ interface AuthCredentials {
     password: string;
 }
 
-declare module "next-auth" {
+declare module 'next-auth' {
     interface Session {
         user: {
             id?: string;
             email?: string;
             emailVerified: boolean;
-        } & DefaultSession["user"];
+            image?: string;
+            name?: string;
+        } & DefaultSession['user'];
     }
     interface User {
         id: string;
         email: string;
         fullname: string;
         profilePictureUrl?: string;
-        subscriptionType: "FREE" | "STANDARD" | "PREMIUM";
+        subscriptionType: 'FREE' | 'STANDARD' | 'PREMIUM';
         emailVerified: boolean;
         createdAt: string;
         updatedAt: string;
     }
 }
 
-declare module "next-auth/jwt" {
+declare module 'next-auth/jwt' {
     interface JWT {
         id?: string;
         email?: string;
         emailVerified: boolean;
+        image?: string;
+        name?: string;
     }
 }
 
@@ -57,4 +61,3 @@ export type PlanFeatures = {
     OfflineViewing: string;
     FamilySharing: string;
 };
-

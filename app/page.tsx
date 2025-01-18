@@ -14,16 +14,16 @@ export default function Home() {
     return (
         <section className="section-layout -my-16">
             <Hero />
-            <div className="px-8 md:px-24 flex flex-col gap-16 items-start justify-center bg-gradient-to-t from-transparent to-black opacity-90">
-                <div className="space-y-2 ">
+            <div className="pt-16 px-8 md:px-24 flex flex-col gap-16 items-start justify-center bg-gradient-to-t from-transparent to-black opacity-90">
+                <div className="space-y-2 -mb-8">
                     <h1 className="text-2xl font-bold tracking-wide">
                         Explore our wide variety of categories
                     </h1>
-                    <h3 className="tracking-wide text-zinc-400">
+                    <p className="tracking-wide text-zinc-400">
                         Whether you&apos;re looking for a comedy to make you
                         laugh. a drama to make you think. or a documentary to
                         learn something new
-                    </h3>
+                    </p>
                 </div>
 
                 {/* Genre Tiles Carousel */}
@@ -36,18 +36,18 @@ export default function Home() {
 
                 {/* Devices Section */}
                 <div className="relative flex flex-col gap-4">
-                    <div className="space-y-1 ">
-                        <h2 className="text-xl font-bold tracking-wide">
+                    <div className="space-y-2 ">
+                        <h2 className="text-2xl font-bold tracking-wide">
                             We Provide you streaming experience across various
                             devices.
                         </h2>
-                        <h4 className="tracking-wide text-mutedForeground text-md">
+                        <p className="tracking-wide text-mutedForeground text-md">
                             With StreamVibe, you can enjoy your favorite movies
                             and TV shows anytime, anywhere.
-                        </h4>
+                        </p>
                     </div>
 
-                    <div className="relative flex flex-col md:flex-row md:flex-auto gap-4">
+                    <div className="relative flex flex-col md:flex-row md:flex-auto gap-4 mt-4">
                         {DEVICES.map((device) => (
                             <Card key={device.name} className="relative">
                                 <div className="absolute w-full inset-0 z-0 bg-gradient-to-bl from-red-800 via-transparent to-transparent opacity-20 rounded-lg"></div>
@@ -84,14 +84,14 @@ export default function Home() {
                 {/* Plans */}
                 <div className="relative w-full flex flex-col gap-4">
                     <div className="space-y-3 ">
-                        <h2 className="text-2xl font-bold tracking-wide">
+                        <h4 className="text-2xl font-bold tracking-wide">
                             Choose the plan that&apos;s right for you
-                        </h2>
-                        <h4 className="tracking-wide text-mutedForeground text-md">
+                        </h4>
+                        <p className="tracking-wide text-mutedForeground text-md">
                             Join StreamVibe and select from our flexible
                             subscription options tailored to suit your viewing
                             preferences. Get ready for non-stop entertainment!
-                        </h4>
+                        </p>
                     </div>
                     <div className="w-full flex items-center justify-center gap-4">
                         <PlanCard />

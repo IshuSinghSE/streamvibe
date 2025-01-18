@@ -13,7 +13,7 @@ export async function middleware(req: NextRequest) {
         }
     } else {
         if (url.pathname === "/dashboard") {
-            return NextResponse.redirect(new URL("/", req.url));
+            return NextResponse.redirect(new URL("/signin", req.url));
         }
     }
     return NextResponse.next();
@@ -22,9 +22,12 @@ export async function middleware(req: NextRequest) {
 // the path matcher is used to determine which paths should be handled by the middleware
 export const config = {
     matcher: [
-        // "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+        "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
         "/signup/:path*",
         "/signin/:path*",
-        // "/",
+        "/dashboard/:path*",
+        "/account/:path*",
+        "/profile/:path*",
+        "/",
     ],
 };

@@ -67,7 +67,8 @@ export default function HeroCarousel() {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 100vw"
                                         alt={`Thumbnail ${index}`}
                                         fill={true}
-                                        priority={false}
+                                        priority={true}
+                                        lazyBoundary='200px'
                                         className="relative group-hover:scale-105 transition-transform duration-200 ease-in-out w-full h-full object-cover rounded-lg select-none"
                                     />
                                     <div className="absolute w-full bottom-0 left-0 flex-col flex space-y-6 md:space-y-3 text-center pb-16 px-16 md:px-[15%] rounded-lg z-50 -mb-10 md:mb-1">

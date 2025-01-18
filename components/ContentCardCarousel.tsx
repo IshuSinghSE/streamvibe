@@ -45,7 +45,7 @@ const ContentCardCarousel = ({
     title,
     stats
 }: ContentCardProps) => {
-    const getRandomWidth = () => `${Math.floor(Math.random() * 10) + 1}0%`;
+    const getRandomWidth = () => `${Math.floor(0.5 * 10) + 1}0%`;
     const [api, setApi] = React.useState<CarouselApi>();
     const [current, setCurrent] = React.useState(0);
     const [count, setCount] = React.useState(0);

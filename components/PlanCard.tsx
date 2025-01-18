@@ -33,7 +33,7 @@ const PlanCard = () => {
                                 </h3>
                                 <div className="mt-4 grid grid-cols-2 gap-2 tracking-wide">
                                     <Button className="dark:text-white dark:bg-stone-950 ring-1 ring-zinc-800">
-                                        Start Free Trial
+                                        Start Trial
                                     </Button>
                                     <Button className="dark:text-white dark:bg-red-600 ">
                                         Select Plan
