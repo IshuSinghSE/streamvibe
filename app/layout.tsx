@@ -6,7 +6,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ThemeProvider } from "./_contexts/ThemeProvider";
 import AuthProvider from "./_contexts/AuthProvider";
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/react"
 const manrope = Manrope({
     weight: ["400", "500", "600", "700"],
     variable: "--font-manrope",
@@ -67,6 +68,8 @@ export default function RootLayout({
                         <Header />
                         {children}
                         <Footer />
+                        <SpeedInsights />
+                        <Analytics />
                     </main>
                 </ThemeProvider>
             </body>
