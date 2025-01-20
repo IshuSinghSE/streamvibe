@@ -29,8 +29,9 @@ const Dashboard = () => {
                 <div className="w-full space-y-4">
                 <h2 className="text-xl font-semibold tracking-wide">Trending Shows</h2>
                     <ContentCardCarousel
-                        items={filterCardStats(MOVIES, 'duration', 'season')}
-                        variant='shows'
+                        items={filterCardStats(MOVIES, 'season', 'views')}
+                        type="series"
+                        variant="trending"
                     />
                 </div>
             </div>
