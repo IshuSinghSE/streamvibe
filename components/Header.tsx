@@ -83,7 +83,7 @@ const Header = () => {
                     <h1 className="font-righteous text-xl">StreamVibe</h1>
                 </div>
             </Link>
-            <div className="mr-0 sm:mr-10 md:mr-16">
+            <div className="hidden md:flex mr-0 sm:mr-10 md:mr-16">
                 {status === 'loading' ? (
                     <Skeleton className="w-[440px] h-10 p-1" />
                 ) : (
