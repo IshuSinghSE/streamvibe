@@ -23,7 +23,7 @@ const NavBar = () => {
     }, [pathname]);
 
     return (
-        <nav className="hidden md:flex bg-neutral-950 px-2 py-2 ring-2 ring-neutral-800 rounded-md">
+        <nav className="hidden lg:flex bg-neutral-950 px-2 py-2 ring-2 ring-neutral-800 rounded-md">
             <ul className="flex items-center justify-center space-x-1">
                 {navItems.map((item, index) => (
                     <li key={index}>

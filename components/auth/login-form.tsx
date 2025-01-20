@@ -58,8 +58,8 @@ export function LoginForm({ formType }: { formType: 'signin' | 'signup' }) {
                 'justify-center mt-20 md:mt-12'
             )}
         >
-            <div className="absolute inset-0 bg-gradient-to-t from-transparent to-black opacity-90 z-0 backdrop-blur-sm"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-90 z-0"></div>
+            <div className="absolute h-screen inset-0 bg-gradient-to-t from-transparent to-black opacity-90 z-0 backdrop-blur-sm"></div>
+            <div className="absolute h-screen inset-0 bg-gradient-to-b from-transparent to-black opacity-90 z-0"></div>
             <Image
                 src="/assets/images/auth-cover.jpg"
                 alt="Auth Cover"
@@ -224,13 +224,16 @@ export function LoginForm({ formType }: { formType: 'signin' | 'signup' }) {
                             </div>
                         </div>
                     </form>
-                    <div className="relative hidden bg-dark-800 md:block dark:bg-neutral-800">
+                    <div className="relative hidden bg-dark-800 md:block dark:bg-neutral-800 overflow-hidden">
                         <Image
-                            src="/assets/images/side-image.png"
+                            src="/assets/images/auth-cover.jpg"
                             alt="Image"
-                            fill={true}
+                            width={720}
+                            height={1080}
                             priority={true}
-                            className="absolute inset-0 h-full w-full object-cover overflow-hidden dark:brightness-[0.2] dark:grayscale brightness-75"
+                            placeholder='blur'
+                            blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/lxKUAAAAASUVORK5CYII='
+                            className="absolute inset-0 h-full w-full object-cover overflow-hidden dark:brightness-[0.8]  brightness-95"
                         />
                     </div>
                 </CardContent>

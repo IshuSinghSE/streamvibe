@@ -1,8 +1,8 @@
-import React from "react";
-import { PlayIcon } from "lucide-react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import React from 'react';
+import { PlayIcon } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 const Hero = () => {
     return (
@@ -15,8 +15,17 @@ const Hero = () => {
                 //     backgroundImage:
                 //         "url('/assets/images/movies-grid-desktop.jpg')",
                 // }}
-            >   
-            <Image src="/assets/images/movies-grid-desktop.jpg" width={1200} height={800}   alt="movies-grid-desktop" priority={true} className=" bg-center absolute inset-0 w-full h-screen object-cover -z-10"/>
+            >
+                <Image
+                    src="/assets/images/movies-grid-desktop.jpg"
+                    width={1200}
+                    height={800}
+                    placeholder="blur"
+                    blurDataURL='/assets/images/movies-grid-desktop.jpg'
+                    alt="movies-grid-desktop"
+                    priority={true}
+                    className=" bg-center absolute inset-0 w-full h-screen object-cover -z-10"
+                />
                 <div className="relative w-full flex flex-col items-center justify-end space-y-6 md:space-y-4 text-center p-16 md:px-[15%] rounded-lg bg-gradient-to-b from-transparent to-black opacity-100">
                     <h1 className="text-white text-3xl md:text-4xl font-semibold">
                         The Best Streaming Experience

@@ -29,9 +29,9 @@ interface ContentCardProps {
         | 'genre'
         | 'trending'
         | 'released'
-        | 'mustWatch'
-        | 'shows'
+        | 'mustwatch'
         | 'history';
+    type? : 'movies' | 'series';
     image?: string;
     title?: string;
     badge?: string;
@@ -41,6 +41,7 @@ interface ContentCardProps {
 const ContentCardCarousel = ({
     items,
     variant,
+    type,
     image,
     title,
     stats
@@ -91,6 +92,8 @@ const ContentCardCarousel = ({
                                     height={200}
                                     priority={false}
                                     loading="lazy"
+                                    placeholder="blur"
+                                    blurDataURL={item.image}
                                     className={cn(
                                         'group-hover:scale-95 transition-transform duration-200 ease-in-out rounded-lg select-none',
                                         variant === 'history' && 'w-full h-full'
@@ -120,26 +123,27 @@ const ContentCardCarousel = ({
                                         <p>{item.title}</p>
                                     ) : variant === 'trending' ? (
                                         <div className=" flex items-center justify-center gap-1 py-1 px-2 rounded-full bg-neutral-950 text-neutral-300 text-xs">
-                                            <ClockIcon className="w-4 h-4" />
+                                           { type === 'series' ? <RectangleStackIcon className="w-4 h-4" /> : <ClockIcon className="w-4 h-4" />}
                                             {item.title}
                                         </div>
                                     ) : variant === 'released' ? (
                                         <div className=" w-full -mb-4 md:mb-0 py-1 px-2 rounded-full bg-neutral-950 text-neutral-300 text-[11px] text-center font-medium">
                                             Released on {item.title}
                                         </div>
-                                    ) : variant === 'mustWatch' ? (
+                                    ) : variant === 'mustwatch' ? (
                                         <div className=" flex items-center justify-center gap-1 py-1 px-2 rounded-full bg-neutral-950 text-neutral-300 text-xs">
-                                            <ClockIcon className="w-4 h-4" />
+                                           { type === 'series' ? <RectangleStackIcon className="w-4 h-4" /> :<ClockIcon className="w-4 h-4" />}
                                             {item.title}
                                         </div>
-                                    ) : variant === 'shows' ? (
+                                    ) : type === 'series' ? (
                                         <div className=" flex items-center justify-center gap-1 py-1 px-2 rounded-full bg-neutral-950 text-neutral-300 text-xs">
-                                            <ClockIcon className="w-4 h-4" />
+                                            <RectangleStackIcon className="w-4 h-4" />
                                             {item.title}
                                         </div>
                                     ) : variant === 'history' ? null : (
                                         <p>{item.title}</p>
                                     )}
+
                                     {variant === 'genre' ? (
                                         stats
                                     ) : variant === 'trending' ? (
@@ -149,14 +153,14 @@ const ContentCardCarousel = ({
                                         </div>
                                     ) : variant ===
                                       'released' ? null : variant ===
-                                      'mustWatch' ? (
+                                      'mustwatch' ? (
                                         <div className=" flex items-center justify-center gap-1 py-1 px-2 rounded-full bg-neutral-950 text-neutral-300 text-xs">
                                             <StarIcon className="w-4 h-4" />
                                             {item.stats}
                                         </div>
-                                    ) : variant === 'shows' ? (
+                                    ) : type === 'series' ? (
                                         <div className=" flex items-center justify-center gap-1 py-1 px-2 rounded-full bg-neutral-950 text-neutral-300 text-xs">
-                                            <RectangleStackIcon className="w-4 h-4" />
+                                           <StarIcon className="w-4 h-4" />
                                             {item.stats}
                                         </div>
                                     ) : (

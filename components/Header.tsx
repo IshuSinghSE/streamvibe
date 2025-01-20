@@ -1,22 +1,22 @@
 'use client';
+import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { BellIcon } from '@heroicons/react/24/outline';
 import {
     // Bars3BottomRightIcon,
     MagnifyingGlassIcon
 } from '@heroicons/react/24/solid';
-import { BellIcon } from '@heroicons/react/24/outline';
+import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { MenuBar } from './MenuBar';
 import NavBar from './NavBar';
-import { ModeToggle } from './ThemeToggle';
-import { buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { useSession } from 'next-auth/react';
-import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
 import { AvatarFallback } from './ui/avatar';
+import Skeleton from './skeletons/Skeleton';
 
 const Header = () => {
-    const { data: user } = useSession();
+    const { data: user, status } = useSession();
     // console.log(user, status);
     const [showHeader, setShowHeader] = useState(true);
     const [blurHeader, setBlurHeader] = useState(true);
@@ -53,14 +53,14 @@ const Header = () => {
 
     return (
         <header
-            className={`w-full h-20 max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-24 py-2 fixed top-0 left-0 right-0 z-10 bg-gradient-to-b from-black to-transparent ${
+            className={`w-full h-20 max-w-screen-2xl mx-auto flex items-center justify-between px-8 md:px-24 py-2 fixed top-0 left-0 right-0 z-10 bg-gradient-to-b from-black to-transparent ${
                 blurHeader ? 'backdrop-blur-sm' : 'backdrop-blur-none'
             } transition-transform duration-500 ease-in-out ${
                 showHeader ? 'translate-y-0' : '-translate-y-full'
             }`}
         >
-            <Link href="/">
-                <div className="flex items-center space-x-2 w-[200px] h-[60px] cursor-pointer">
+            <Link href={'/'}>
+                <div className="flex items-center space-x-2 w-[150px] md:w-[200px] h-[60px] cursor-pointer">
                     <svg
                         width="40"
                         height="40"
@@ -83,16 +83,26 @@ const Header = () => {
                     <h1 className="font-righteous text-xl">StreamVibe</h1>
                 </div>
             </Link>
-            <div className="mr-16">{user && <NavBar />}</div>
+            <div className="mr-0 sm:mr-10 md:mr-16">
+                {status === 'loading' ? (
+                    <Skeleton className="w-[440px] h-10 p-1" />
+                ) : (
+                   status === 'authenticated' && <NavBar />
+                )}
+            </div>
             <div className="flex items-center space-x-4">
-                {user ? (
+                <div className="flex space-x-4">
+                    <MagnifyingGlassIcon className="p-1 h-8 w-8" />
+                    <BellIcon className="p-1 h-8 w-8 hidden md:flex" />
+                </div>
+                {status === 'loading' ? (
                     <>
-                        <div className="flex space-x-4">
-                            <MagnifyingGlassIcon className="p-1 h-8 w-8" />
-                            <BellIcon className="p-1 h-8 w-8" />
-                        </div>
-                        <MenuBar user={user?.user}>
-                            <Avatar className="h-10 w-10 p-1 bg-neutral-900 flex rounded-full ring-1 ring-neutral-800 shadow-lg shadow-neutral-800 cursor-pointer ">
+                        <Skeleton className="w-10 h-10 p-1 rounded-full" />
+                    </>
+                ) : status == 'authenticated' ? (
+                    <>
+                        <MenuBar>
+                            <Avatar className="h-10 w-10 p-1 bg-neutral-800 flex rounded-full ring-1 ring-neutral-800 shadow-lg shadow-neutral-800 cursor-pointer ">
                                 <AvatarImage
                                     className="rounded-full "
                                     src={
@@ -100,7 +110,7 @@ const Header = () => {
                                         'https://github.com/shadcn.png'
                                     }
                                 />
-                                <AvatarFallback>CN</AvatarFallback>
+                                <AvatarFallback></AvatarFallback>
                             </Avatar>
 
                             {/* <Bars3BottomRightIcon className="h-10 w-10 p-1 bg-neutral-900 flex rounded-lg ring-1 ring-neutral-800 shadow-lg shadow-neutral-800" /> */}
@@ -119,7 +129,7 @@ const Header = () => {
                         </Link>
                     </div>
                 )}
-                <ModeToggle className="hidden md:flex" />
+                {/* <ModeToggle className="hidden md:flex" /> */}
             </div>
         </header>
     );
