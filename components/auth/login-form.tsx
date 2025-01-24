@@ -67,7 +67,7 @@ export function LoginForm({ formType }: { formType: 'signin' | 'signup' }) {
                 fill={true}
                 className="bg-center absolute inset-0 w-full h-screen object-cover -z-10"
             />
-            <Card className="overflow-hidden z-10">
+            <Card className="overflow-hidden z-10" style={{ colorScheme: "dark" }}>
                 <CardContent className="grid p-0 md:grid-cols-2">
                     <form onSubmit={handleSubmit} className="p-6 md:p-8">
                         <div className="flex flex-col gap-6">
@@ -224,7 +224,7 @@ export function LoginForm({ formType }: { formType: 'signin' | 'signup' }) {
                             </div>
                         </div>
                     </form>
-                    <div className="relative hidden bg-dark-800 md:block dark:bg-neutral-800 overflow-hidden">
+                    <div className="relative hidden bg-dark-800 md:block dark:bg-neutral-800 overflow-hidden" style={{ colorScheme: "dark" }}>
                         <Image
                             src="/assets/images/auth-cover.jpg"
                             alt="Image"

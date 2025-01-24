@@ -80,6 +80,7 @@ const ContentCardCarousel = ({
                             <CarouselItem
                                 key={index}
                                 className="group relative basis-48 lg:basis-52 flex-shrink-0 flex flex-col gap-4 bg-neutral-900 p-2 rounded-lg border-2 border-neutral-800 hover:border-zinc-600 transition-colors duration-100 ease-in-out shadow-md shadow-neutral-800"
+                                style={{ colorScheme: "dark" }}
                             >
                                 {variant === 'genre' && (
                                     <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent to-black opacity-100 rounded-lg"></div>
@@ -128,7 +129,7 @@ const ContentCardCarousel = ({
                                         </div>
                                     ) : variant === 'released' ? (
                                         <div className=" w-full -mb-4 md:mb-0 py-1 px-2 rounded-full bg-neutral-950 text-neutral-300 text-[11px] text-center font-medium">
-                                            Released on {item.title}
+                                            Upcoming on {item.title}
                                         </div>
                                     ) : variant === 'mustwatch' ? (
                                         <div className=" flex items-center justify-center gap-1 py-1 px-2 rounded-full bg-neutral-950 text-neutral-300 text-xs">

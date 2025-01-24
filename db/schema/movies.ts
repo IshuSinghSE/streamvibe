@@ -8,6 +8,7 @@ import {
   uuid,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
+import { number } from "zod";
 
 export const movies = pgTable("movies", {
   id: uuid("id").notNull().primaryKey().defaultRandom().unique(),
@@ -67,6 +68,15 @@ export const episodes = pgTable("episodes", {
   description: text("description"),
   likes: integer("likes"),
   streamUrl: text("streamUrl"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+
+export const genres = pgTable("genres", {
+  id: integer("id").notNull().primaryKey().unique(),
+  name: text("name").notNull().unique(),
+  image: text("image"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });

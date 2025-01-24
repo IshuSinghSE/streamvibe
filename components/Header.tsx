@@ -80,7 +80,7 @@ const Header = () => {
                             className="fill-current"
                         />
                     </svg>
-                    <h1 className="font-righteous text-xl">StreamVibe</h1>
+                    <h1 className="font-righteous text-xl select-none">StreamVibe</h1>
                 </div>
             </Link>
             <div className="hidden md:flex mr-0 sm:mr-10 md:mr-16">
@@ -104,7 +104,7 @@ const Header = () => {
                         <MenuBar>
                             <Avatar className="h-10 w-10 p-1 bg-neutral-800 flex rounded-full ring-1 ring-neutral-800 shadow-lg shadow-neutral-800 cursor-pointer ">
                                 <AvatarImage
-                                    className="rounded-full "
+                                    className="rounded-full select-none"
                                     src={
                                         user?.user?.image ??
                                         'https://github.com/shadcn.png'

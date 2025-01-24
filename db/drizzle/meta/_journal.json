@@ -8,6 +8,13 @@
       "when": 1736623229558,
       "tag": "0000_public_leopardon",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1737748642841,
+      "tag": "0001_fast_talos",
+      "breakpoints": true
     }
   ]
 }

@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NavBar = () => {
-    const navItems = [
+    const navItems = React.useMemo(() => [
         { name: "Dashboard", href: "/dashboard" },
         { name: "Movies", href: "/movies" },
         { name: "Series", href: "/series" },
         { name: "Support", href: "/support" },
         { name: "Subscription", href: "/subscription" },
-    ];
+    ], []);
 
     const pathname = usePathname();
     const [active, setActive] = React.useState("");
@@ -20,7 +20,7 @@ const NavBar = () => {
         if (currentItem) {
             setActive(currentItem.name);
         }
-    }, [pathname]);
+    }, [navItems, pathname]);
 
     return (
         <nav className="hidden lg:flex bg-neutral-950 px-2 py-2 ring-2 ring-neutral-800 rounded-md">
