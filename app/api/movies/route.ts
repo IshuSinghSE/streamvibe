@@ -1,11 +1,10 @@
-import { NextApiRequest } from 'next';
+import { NextResponse } from 'next/server';
 import { genres } from '@/db/schema/movies';
 import { db } from '@/db/drizzle';
-import { NextResponse } from 'next/server';
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: Request) {
     try {
-        const parsedData = req.body;
+        const parsedData = await req.json(); // Parse JSON body from the Request object
         if (Array.isArray(parsedData)) {
             await db.insert(genres).values(parsedData);
         } else {
@@ -25,7 +24,7 @@ export async function POST(req: NextApiRequest) {
 export async function GET() {
     try {
         const genresData = await db.select().from(genres);
-        return NextResponse.json({genres: genresData});
+        return NextResponse.json({ genres: genresData });
     } catch (error) {
         if (error instanceof Error) {
             return NextResponse.json({ error: error.message });
